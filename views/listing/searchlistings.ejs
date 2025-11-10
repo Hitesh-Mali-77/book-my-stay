@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+
+<h3>Search results for "<%= query %>"</h3>
+
+<div class="row index-page mt-3">
+  <% if (listings.length === 0) { %>
+  <p>No results found for "<%= query %>".</p>
+  <% } else { %> <% for(let listing of listings){ %>
+  <div class="card index-card" style="width: 17rem">
+    <img
+      src="<%= listing.image.url %>"
+      class="card-img-top index-card-img"
+      alt="listing_image"
+      style="height: 12rem"
+    />
+    <div class="card-body index-card-body">
+      <p class="card-text">
+        <b><%= listing.title %></b> <br />
+        <%= new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR"
+        }).format(listing.price) %>/per night
+        <span class="tax-info" style="display: none">
+          <br />(incl. GST 18%) &nbsp;<b
+            >Total: ₹<%= (listing.price * 1.18).toFixed(2) %></b
+          >
+        </span>
+      </p>
+      <a href="/listing/<%= listing._id %>" class="btn btn-primary">view</a>
+    </div>
+  </div>
+  <%}%> <% } %>
+</div>

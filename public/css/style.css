@@ -1,0 +1,138 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal; */
+}
+
+/* BOILERPLATE CLAA CONTAINER STYLING */
+.container {
+  flex: 1;
+}
+
+/* NAVBAR STYLING */
+.navbar {
+  height: 5rem;
+  background-color: white;
+}
+
+.fa-compass {
+  color: red;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+/* FOOTER STYLING */
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info {
+  border-top: 0.0001rem solid #222222;
+  text-align: center;
+  height: 8rem;
+  background-color: rgb(222, 216, 216);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+.f-info-links,
+.f-info-socials {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  margin: 1.5rem;
+  font-size: 1.2rem;
+}
+
+/* INDEX PAGE */
+.index-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.index-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none !important;
+  margin-bottom: 2rem !important;
+  padding: 1rem 0rem 1rem 0rem;
+}
+.index-card:hover {
+  box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2);
+}
+
+.index-card-img {
+  border-radius: 0.5rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+.index-card-body {
+  padding: 0 !important;
+}
+
+.btn-primary {
+  background-color: #ff385c !important;
+  width: 100%;
+  border: none !important;
+}
+
+/* NEW PAGE STYLING */
+.add-btn {
+  background-color: #ff385c !important;
+  border: none !important;
+}
+
+/* SHOW PAGE STYLING */
+.show-card {
+  width: 40rem !important;
+  display: flex !important;
+  align-items: center !important;
+  margin: auto !important;
+  border: none !important;
+}
+.show-card img {
+  width: 40rem !important;
+  height: 23rem !important;
+  border-radius: 0.5rem !important;
+}
+.show-body {
+  width: 40rem;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.edit-delete-btn {
+  display: flex;
+  justify-content: space-between;
+}
+.show-edit-btn {
+  background-color: red !important;
+  border: none !important;
+  width: 19rem;
+  font-size: 1rem !important;
+}
+.show-edit-btn:hover {
+}
+.show-delete-btn {
+  background-color: red !important;
+  border: none !important;
+  width: 19rem;
+}
+.show-delete-btn:hover {
+}

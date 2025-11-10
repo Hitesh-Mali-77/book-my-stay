@@ -1,0 +1,190 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+  /* ---------- FILTER CONTAINER ---------- */
+  .filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    flex-wrap: wrap; /* ensures responsiveness */
+  }
+
+  /* ---------- SEARCH BAR ---------- */
+  .simple-search {
+    flex: 1 1 65%; /* 65% width on large screens */
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 5px 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .simple-search:focus-within {
+    border-color: #ff385c;
+    box-shadow: 0 4px 10px rgba(255, 56, 92, 0.2);
+  }
+
+  .simple-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    padding: 8px 10px;
+    color: #333;
+  }
+
+  .simple-search button {
+    border: none;
+    background: #ff385c;
+    color: #fff;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .simple-search button:hover {
+    background: #e03150;
+  }
+
+  /* ---------- TOGGLE SWITCH SECTION ---------- */
+  .filter-option {
+    flex: 1 1 30%; /* 30% width on large screens */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .tax-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .check-label {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .check-input {
+    width: 45px;
+    height: 25px;
+    cursor: pointer;
+    accent-color: #ff385c;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .filter {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 15px;
+    }
+
+    .simple-search {
+      width: 100%;
+    }
+
+    .filter-option {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .tax-toggle {
+      justify-content: flex-start;
+    }
+
+    .check-label {
+      font-size: 14px;
+    }
+  }
+
+  #list-title {
+    display: block !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+</style>
+
+<div class="filter">
+  <form class="simple-search" action="/listing/search" method="GET">
+    <input
+      type="text"
+      name="q"
+      placeholder="Search by country or location..."
+      required
+    />
+    <button type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </form>
+  <div class="filter-option">
+    <div class="form-check form-switch form-check-reverse tax-toggle">
+      <label class="check-label" for="switchCheckDefault"
+        >Display total after taxes</label
+      >
+      <input
+        class="check-input"
+        type="checkbox"
+        role="switch"
+        id="switchCheckDefault"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row index-page mt-3">
+  <% for(let listing of allListings){ %>
+  <div class="card index-card" style="width: 17rem">
+    <img
+      src="<%= listing.image.url %>"
+      class="card-img-top index-card-img"
+      alt="listing_image"
+      style="height: 12rem"
+    />
+    <div class="card-body index-card-body list-info">
+      <p class="card-text" id="card-text">
+        <b id="list-title"><%= listing.title %></b>
+        <%= new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR"
+        }).format(listing.price) %>/per night
+        <span class="tax-info" style="display: none">
+          <br />(incl. GST 18%) &nbsp;<b
+            >Total: ₹<%= (listing.price * 1.18).toFixed(2) %></b
+          >
+        </span>
+      </p>
+      <a href="/listing/<%= listing._id %>" class="btn btn-primary">view</a>
+    </div>
+  </div>
+  <%}%>
+</div>
+
+<script>
+  let taxSwitch = document.getElementById("switchCheckDefault");
+  taxSwitch.addEventListener("click", () => {
+    let taxInfo = document.getElementsByClassName("tax-info");
+    for (info of taxInfo) {
+      if (info.style.display != "inline") {
+        info.style.display = "inline";
+      } else {
+        info.style.display = "none";
+      }
+    }
+  });
+</script>
