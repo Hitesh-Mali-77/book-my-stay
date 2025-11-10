@@ -22,7 +22,11 @@ const listingRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/reviews.js");
 const userRouter = require("./routes/user.js");
 
-const dbUrl = process.env.ATLASDB_URL;
+const userRoutes = require("./routes/user");
+
+// const dbUrl = process.env.ATLASDB_URL;
+
+const dbUrl = "mongodb://127.0.0.1:27017/airbnb";
 
 async function main() {
   await mongoose.connect(dbUrl);
@@ -33,6 +37,7 @@ main()
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
@@ -81,6 +86,7 @@ app.use((req, res, next) => {
 
 app.use("/listing", listingRouter);
 app.use("/listing/:id/reviews", reviewsRouter);
+app.use("/user", userRoutes);
 app.use("/", userRouter);
 
 app.all(/(.*)/, (req, res, next) => {

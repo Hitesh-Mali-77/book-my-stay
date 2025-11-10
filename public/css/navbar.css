@@ -1,0 +1,64 @@
+#explore {
+  transition: all 0.3s ease;
+}
+
+#explore:hover {
+  color: #ff385c !important;
+  font-weight: 700;
+}
+
+#for-host {
+  border: 1px solid black;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+#for-host:hover {
+  color: #ff385c !important;
+  font-weight: 700;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav-link:hover {
+  color: #ff385c !important;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- RESPONSIVENESS ---------- */
+@media (max-width: 992px) {
+  .navbar-nav {
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #for-host {
+    margin: 8px auto;
+    display: block;
+    width: 80%;
+  }
+
+  .profile-icon {
+    margin: 10px auto;
+    display: block;
+  }
+
+  .nav-link {
+    padding: 8px 0;
+  }
+}

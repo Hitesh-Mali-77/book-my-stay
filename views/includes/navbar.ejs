@@ -1,37 +1,23 @@
-<style>
-  #explore {
-    transition: all 0.3s ease;
-  }
-
-  #explore:hover {
-    color: #ff385c !important;
-    font-weight: 700;
-  }
-
-  #for-host {
-    border: 1px solid black;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  #for-host:hover {
-    color: #ff385c !important;
-    font-weight: 700;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-
-  .nav-link:hover {
-    color: #ff385c !important;
-  }
-</style>
-
 <nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listing">
-      <img src="/images/image.png" alt=" logo" height="60px" />
+      <img src="/images/image.png" alt="logo" height="60px" />
     </a>
 
+    <!-- 🔽 Hamburger button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- 🔽 Collapsible menu -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav" id="explore">
         <a class="nav-link" href="/listing">Explore</a>
@@ -39,10 +25,18 @@
 
       <div class="navbar-nav ms-auto">
         <a class="nav-link" id="for-host" href="/listing/new">Become a host</a>
+
         <% if(!currUser){ %>
         <a class="nav-link" href="/signup"><b>Sign up</b></a>
         <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } %> <% if(currUser) { %>
+        <% } else { %>
+        <a href="/user/<%= currUser._id %>" class="nav-link p-0">
+          <img
+            src="<%= currUser.profileImage || '/images/default-user.png' %>"
+            alt="User"
+            class="profile-icon"
+          />
+        </a>
         <a class="nav-link" href="/logout"><b>Log out</b></a>
         <% } %>
       </div>

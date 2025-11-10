@@ -37,12 +37,9 @@
       </p>
       <p class="card-text"><%= listing.location %>, <%= listing.country %></p>
 
-      <form action="/listing/" method="GET">
-        <button type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
+      <!-- for booking -->
 
+      <!-- ++++++================ -->
       <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
       <div
         class="btn-group edit-delete-btn"
