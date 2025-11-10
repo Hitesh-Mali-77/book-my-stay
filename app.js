@@ -26,7 +26,7 @@ const userRoutes = require("./routes/user");
 
 // const dbUrl = process.env.ATLASDB_URL;
 
-const dbUrl = "mongodb://127.0.0.1:27017/airbnb";
+const dbUrl = process.env.ATLASDB_URL;
 
 async function main() {
   await mongoose.connect(dbUrl);
