@@ -117,7 +117,7 @@
           <b><p><%= review.author.username %></p></b>
           <p><%= review.comments %></p>
           <p class="starability-result" data-rating="<%= review.rating %>"></p>
-          <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+          <% if(currUser && review.author._id.equals(currUser._id)) { %>
           <form
             method="post"
             action="/listing/<%= listing._id %>/reviews/<%= review._id %>?_method=Delete"

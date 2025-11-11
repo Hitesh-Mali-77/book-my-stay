@@ -1,37 +1,23 @@
-.navbar {
-  height: 5rem !important;
-  background-color: white !important;
-}
-
-.fa-compass {
-  color: red !important;
-  font-size: 2rem !important;
-}
-
-.nav-link {
-  color: #222222 !important;
-}
-
 #explore {
   transition: all 0.3s ease !important;
 }
 
 #explore:hover {
   color: #ff385c !important;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 #for-host {
-  border: 1px solid black;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid black !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) !important;
 }
 
 #for-host:hover {
   color: #ff385c !important;
-  font-weight: 700;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-weight: 700 !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) !important;
 }
 
 .nav-link:hover {
@@ -39,40 +25,40 @@
 }
 
 .profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  cursor: pointer !important;
+  transition: transform 0.2s ease !important;
 }
 
 .profile-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
 }
 
 /* ---------- RESPONSIVENESS ---------- */
 @media (max-width: 992px) {
   .navbar-nav {
-    text-align: center;
-    background: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
   }
 
   #for-host {
-    margin: 8px auto;
-    display: block;
-    width: 80%;
+    margin: 8px auto !important;
+    display: block !important;
+    width: 80% !important;
   }
 
   .profile-icon {
-    margin: 10px auto;
-    display: block;
+    margin: 10px auto !important;
+    display: block !important;
   }
 
   .nav-link {
-    padding: 8px 0;
+    padding: 8px 0 !important;
   }
 }
