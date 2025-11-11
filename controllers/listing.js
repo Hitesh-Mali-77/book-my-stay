@@ -45,7 +45,6 @@ module.exports.createListing = async (req, res, next) => {
   if (response.features && response.features.length > 0) {
     coordinates = response.features[0].geometry.coordinates;
   }
-  console.log(coordinates);
 
   let url = req.file.path;
   let filename = req.file.filename;
@@ -55,7 +54,6 @@ module.exports.createListing = async (req, res, next) => {
   newListing.image = { url, filename };
   newListing.geometry = { type: "Point", coordinates };
   let savedlist = await newListing.save();
-  console.log(savedlist);
   req.flash("success", "New Listing Created");
   res.redirect("/listing");
 };
@@ -118,7 +116,6 @@ module.exports.deleteListing = async (req, res) => {
 };
 
 module.exports.searchResult = async (req, res) => {
-  console.log("Search route hit!"); // 👈 check if route is working
   const query = req.query.q;
 
   if (!query) {

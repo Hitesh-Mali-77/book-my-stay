@@ -29,8 +29,8 @@ router
     userController.loginUser
   );
 
-// const User = require("../models/user");
-// const Listing = require("../models/listing");
+//logout route
+router.get("/logout", userController.logoutUser);
 
 // User profile page
 router.get("/:id", async (req, res) => {
@@ -40,10 +40,5 @@ router.get("/:id", async (req, res) => {
 
   res.render("users/show", { user, listings });
 });
-
-module.exports = router;
-
-//logout route
-router.get("/logout", userController.logoutUser);
 
 module.exports = router;

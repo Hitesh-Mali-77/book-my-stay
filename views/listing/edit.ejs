@@ -1,4 +1,99 @@
 <% layout('layouts/boilerplate') %>
+<style>
+  /* Show Page Styling */
+  .show-card {
+    margin: 20px !important;
+    padding: 20px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+  .show-title {
+    font-size: 28px !important;
+    margin-bottom: 15px !important;
+  }
+  .show-img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin-bottom: 15px !important;
+  }
+  .show-body {
+    padding: 10px !important;
+  }
+  .owner {
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+  }
+  .description {
+    margin-bottom: 10px !important;
+  }
+  .price {
+    color: #ff385c !important;
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  .location {
+    font-style: italic !important;
+    margin-bottom: 15px !important;
+  }
+
+  .edit-delete-btn {
+    display: flex !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
+  }
+  .show-edit-btn,
+  .show-delete-btn {
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+  }
+
+  .review-form {
+    margin-top: 20px !important;
+  }
+  .review-form textarea {
+    width: 100% !important;
+    resize: vertical !important;
+    margin-bottom: 10px !important;
+  }
+
+  .submit-review {
+    margin-top: 10px !important;
+  }
+
+  .all-reviews {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+  }
+  .review-card {
+    padding: 10px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  #map {
+    width: 100% !important;
+    height: 400px !important;
+    margin-top: 10px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .show-title {
+      font-size: 22px !important;
+    }
+    .price {
+      font-size: 18px !important;
+    }
+    .review-card {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
+</style>
 <form
   method="post"
   action="/listing/<%= listing._id %>?_method=PUT"
@@ -7,7 +102,7 @@
   enctype="multipart/form-data"
 >
   <div class="row">
-    <div class="col-8">
+    <div class="col">
       <br />
       <h3>Edit Your Listing</h3>
       <div class="mb-3">

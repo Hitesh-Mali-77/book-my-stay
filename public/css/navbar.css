@@ -1,5 +1,19 @@
+.navbar {
+  height: 5rem !important;
+  background-color: white !important;
+}
+
+.fa-compass {
+  color: red !important;
+  font-size: 2rem !important;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
 #explore {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
 }
 
 #explore:hover {

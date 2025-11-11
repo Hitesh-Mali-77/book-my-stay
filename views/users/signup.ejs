@@ -1,44 +1,149 @@
-
 <% layout('layouts/boilerplate') %>
+
+<style>
+  /* --- Page Base --- */
+  body {
+    background-color: #fafafa;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+  }
+
+  /* --- Heading --- */
+  h1 {
+    text-align: center;
+    color: #ff385c;
+    font-weight: 600;
+    margin-bottom: 25px;
+  }
+
+  /* --- Form Container --- */
+  .col-6 {
+    background: #ffffff;
+    padding: 35px 45px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 25px;
+  }
+
+  /* --- Input Fields --- */
+  .form-comtrol {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px 14px;
+    font-size: 15px;
+    transition: 0.3s;
+  }
+
+  .form-comtrol:focus {
+    border-color: #ff385c;
+    box-shadow: 0 0 6px rgba(255, 56, 92, 0.4);
+    outline: none;
+  }
+
+  /* --- Labels --- */
+  .form-label {
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  /* --- Button --- */
+  .btn-success {
+    background-color: #ff385c;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-success:hover {
+    background-color: #e03153;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 56, 92, 0.4);
+  }
+
+  /* --- Validation Feedback --- */
+  .valid-feedback {
+    color: #28a745;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  /* --- Extra: Login Link --- */
+  .signup-extra {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .signup-extra a {
+    color: #ff385c;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .signup-extra a:hover {
+    text-decoration: underline;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .col-6 {
+      width: 90%;
+      margin: 20px auto;
+      padding: 25px;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+  }
+</style>
+
 <div class="row mt-3">
-    <h1>SignUp on Book my stay</h1>
-    <div class="col-6 offset-3">
-        <form action="/signup" method="POST" class="needs-validation" novalidate>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <br>
-                <input 
-                  name="username"
-                  id="username"
-                  type="text"
-                  class="form-comtrol"
-                  required
-                />
-                <div class="valid-feedback">Looks Good</div>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <br>
-                <input 
-                  name="email"
-                  id="email"
-                  type="email"
-                  class="form-comtrol"
-                  required
-                />
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <br>
-                <input 
-                  name="password"
-                  id="password"
-                  type="password"
-                  class="form-comtrol"
-                  required
-                />
-            </div>
-            <button class="btn btn-success">SignUp</button>
-        </form>
-    </div>
+  <h1>SignUp on Book my stay</h1>
+  <div class="col-6 offset-3">
+    <form action="/signup" method="POST" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <br />
+        <input
+          name="username"
+          id="username"
+          type="text"
+          class="form-comtrol"
+          required
+        />
+        <div class="valid-feedback">Looks Good</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <br />
+        <input
+          name="email"
+          id="email"
+          type="email"
+          class="form-comtrol"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <br />
+        <input
+          name="password"
+          id="password"
+          type="password"
+          class="form-comtrol"
+          required
+        />
+      </div>
+      <button class="btn btn-success">SignUp</button>
+    </form>
+  </div>
 </div>

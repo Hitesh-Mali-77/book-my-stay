@@ -1,4 +1,106 @@
 <% layout('layouts/boilerplate') %>
+
+<style>
+  /* --- General Page Styling --- */
+  body {
+    background-color: #fafafa;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+  }
+
+  /* --- Form Container --- */
+  form {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 35px 45px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    margin: 50px auto;
+    max-width: 700px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* --- Heading --- */
+  h3 {
+    color: #ff385c;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  /* --- Label Styling --- */
+  .form-label {
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 6px;
+  }
+
+  /* --- Input Fields --- */
+  .form-control {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px 14px;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .form-control:focus {
+    border-color: #ff385c;
+    box-shadow: 0 0 6px rgba(255, 56, 92, 0.4);
+  }
+
+  /* --- Textarea --- */
+  textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  /* --- Button --- */
+  .add-btn {
+    background-color: #ff385c;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  .add-btn:hover {
+    background-color: #e03153;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 56, 92, 0.4);
+  }
+
+  /* --- Validation Feedback --- */
+  .invalid-feedback {
+    color: #e63946;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  /* --- Responsive Design --- */
+  @media (max-width: 768px) {
+    form {
+      padding: 25px;
+      margin: 20px;
+    }
+
+    .row {
+      flex-direction: column;
+    }
+
+    .col-md-4,
+    .col-md-8 {
+      width: 100%;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+  }
+</style>
+
 <form
   method="post"
   action="/listing"
@@ -7,83 +109,75 @@
   enctype="multipart/form-data"
 >
   <div class="row">
-    <div class="col-8">
-      <br />
-      <h3>Create new listing</h3>
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input
-          name="listing[title]"
-          placeholder="Add a catchy title"
-          type="text"
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">Please enter a title.</div>
-      </div>
-
-      <div class="mb-3">
-        <label for="description" class="form-label">Discription</label>
-        <textarea
-          name="listing[description]"
-          placeholder="enter description"
-          class="form-control"
-          required
-        ></textarea>
-        <div class="invalid-feedback">Please enter a discription.</div>
-      </div>
-
-      <div class="mb-3">
-        <label for="image" class="form-label">Upload Image</label>
-        <input
-          name="listing[image]"
-          type="file"
-          class="form-control"
-          required
-        />
-        <div class="invalid-feedback">Please add a image.</div>
-      </div>
-
-      <div class="row">
-        <div class="mb-3 col-md-4">
-          <label for="price" class="form-label">Price</label>
-          <input
-            name="listing[price]"
-            placeholder="enter price"
-            type="text"
-            class="form-control"
-            required
-          />
-          <div class="invalid-feedback">Please enter a price.</div>
-        </div>
-        <div class="mb-3 col-md-8">
-          <label for="country" class="form-label">Country</label>
-          <input
-            name="listing[country]"
-            placeholder="enter country"
-            type="text"
-            class="form-control"
-            required
-          />
-          <div class="invalid-feedback">Please enter a country.</div>
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-        <input
-          name="listing[location]"
-          placeholder="enter location"
-          type="text"
-          class="form-control"
-          required
-        />
-        <div class="invalid-feedback">Please enter a location.</div>
-      </div>
-
-      <button type="submit" class="btn btn-primary add-btn">Add</button>
-      <br /><br />
+    <h3>Create new listing</h3>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        name="listing[title]"
+        placeholder="Add a catchy title"
+        type="text"
+        class="form-control"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please enter a title.</div>
     </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Discription</label>
+      <textarea
+        name="listing[description]"
+        placeholder="enter description"
+        class="form-control"
+        required
+      ></textarea>
+      <div class="invalid-feedback">Please enter a discription.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Upload Image</label>
+      <input name="listing[image]" type="file" class="form-control" required />
+      <div class="invalid-feedback">Please add a image.</div>
+    </div>
+
+    <div class="row">
+      <div class="mb-3 col-md-4">
+        <label for="price" class="form-label">Price</label>
+        <input
+          name="listing[price]"
+          placeholder="enter price"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter a price.</div>
+      </div>
+      <div class="mb-3 col-md-8">
+        <label for="country" class="form-label">Country</label>
+        <input
+          name="listing[country]"
+          placeholder="enter country"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter a country.</div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input
+        name="listing[location]"
+        placeholder="enter location"
+        type="text"
+        class="form-control"
+        required
+      />
+      <div class="invalid-feedback">Please enter a location.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary add-btn">Add</button>
+    <br /><br />
   </div>
 </form>

@@ -99,44 +99,6 @@ body {
   border: none !important;
 }
 
-/* SHOW PAGE STYLING */
-.show-card {
-  width: 40rem !important;
-  display: flex !important;
-  align-items: center !important;
-  margin: auto !important;
-  border: none !important;
-}
-.show-card img {
-  width: 40rem !important;
-  height: 23rem !important;
-  border-radius: 0.5rem !important;
-}
-.show-body {
-  width: 40rem;
-  display: flex !important;
-  flex-direction: column !important;
-}
-.edit-delete-btn {
-  display: flex;
-  justify-content: space-between;
-}
-.show-edit-btn {
-  background-color: red !important;
-  border: none !important;
-  width: 19rem;
-  font-size: 1rem !important;
-}
-.show-edit-btn:hover {
-}
-.show-delete-btn {
-  background-color: red !important;
-  border: none !important;
-  width: 19rem;
-}
-.show-delete-btn:hover {
-}
-
 /* for index page */
 
 /* ---------- FILTER CONTAINER ---------- */
